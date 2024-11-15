@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 string render_num_vector(const vector<int>& vec) {
@@ -69,3 +70,17 @@ double mean(const vector<int>& vec){
     m /= vec.size();
     return m;
 }
+int median(const vector<int>& vec){
+    vector<int> sortedVec = vec;
+    sort(sortedVec.begin(), sortedVec.end());
+    int n = sortedVec.size();
+    if(n==0){
+        return 0;
+    }
+    if (n % 2 == 1) {
+        return sortedVec[n / 2];
+    } else {
+        return (sortedVec[n / 2 - 1] + sortedVec[n / 2]) / 2;
+    }
+}
+    

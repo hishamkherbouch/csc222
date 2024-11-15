@@ -54,3 +54,8 @@ TEST_CASE("Testing mean function"){
     double expected = 4.0;
     CHECK(mean(nums) == expected);
 }
+TEST_CASE("Testing median function"){
+    vector<int> nums = {1, 3, 5, 7, 9};
+    int expected = 5;
+    CHECK(median(nums) == expected);
+}
