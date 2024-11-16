@@ -83,4 +83,6 @@ int median(const vector<int>& vec){
         return (sortedVec[n / 2 - 1] + sortedVec[n / 2]) / 2;
     }
 }
-    
+vector<int> mode(const vector<int>& vec){
+    return vec;
+}

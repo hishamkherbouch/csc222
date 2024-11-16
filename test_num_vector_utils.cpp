@@ -59,3 +59,8 @@ TEST_CASE("Testing median function"){
     int expected = 5;
     CHECK(median(nums) == expected);
 }
+TEST_CASE("Testing mode function"){
+    vector<int> nums = {0, 1, 2, 1, 3};
+    vector<int> expected = {1};
+    CHECK(mode(nums)==expected);
+}
