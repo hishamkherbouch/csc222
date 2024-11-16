@@ -84,5 +84,32 @@ int median(const vector<int>& vec){
     }
 }
 vector<int> mode(const vector<int>& vec){
-    return vec;
+    vector<int> sortedVec = vec;
+    sort(sortedVec.begin(), sortedVec.end());
+    int currentFrequency = 0;
+    int maxFrequency = 0;
+    vector<int> modes;
+    for (size_t i = 1; i < sortedVec.size(); ++i) {
+        if (sortedVec[i] == sortedVec[i - 1]) {
+            currentFrequency++;
+        } else{ 
+            if (currentFrequency > maxFrequency) {
+               modes.clear(); 
+                modes.push_back(sortedVec[i - 1]); 
+                maxFrequency = currentFrequency;
+            } else if (currentFrequency == maxFrequency) {
+                modes.push_back(sortedVec[i - 1]); 
+            }           
+            currentFrequency = 1;
+        }
+    }
+
+    if (currentFrequency > maxFrequency) {
+        modes.clear();
+        modes.push_back(sortedVec.back());
+    } else if (currentFrequency == maxFrequency) {
+        modes.push_back(sortedVec.back());
+    }
+
+    return modes;
 }
