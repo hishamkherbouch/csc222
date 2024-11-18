@@ -86,7 +86,7 @@ int median(const vector<int>& vec){
 vector<int> mode(const vector<int>& vec){
     vector<int> sortedVec = vec;
     sort(sortedVec.begin(), sortedVec.end());
-    int currentFrequency = 0;
+    int currentFrequency = 1;
     int maxFrequency = 0;
     vector<int> modes;
     for (size_t i = 1; i < sortedVec.size(); ++i) {

@@ -63,4 +63,10 @@ TEST_CASE("Testing mode function"){
     vector<int> nums = {0, 1, 2, 1, 3};
     vector<int> expected = {1};
     CHECK(mode(nums)==expected);
+    vector<int> num1 = {0, 1, 2, 3, 4};
+    vector<int> expected1 = {0, 1, 2, 3, 4};
+    CHECK(mode(num1)==expected1);
+    vector<int> num2 = {5, 2, 5, 9, 7, 2};
+    vector<int> expected2 = {2, 5};
+    CHECK(mode(num2)==expected2);
 }
