@@ -4,23 +4,20 @@
 #include <string>
 using namespace std;
 
-Time::Time() : hr(0), min(0), sec(0) {}
+Time :: Time () : hr(0), min(0), sec(0){}
 
-
-Time::Time(int sec) {
-    hr = sec / 3600;
-    sec %= 3600;
-    min = sec / 60;
-    this->sec = sec % 60;
+Time :: Time (int seconds){
+    hr = seconds / 3600; 
+    seconds  %= 3600;
+    min = seconds  / 60;
+    sec = seconds % 60;    
 }
-
-
-
-
-string Time::time_to_string() const {
-   string hour = to_string(hr);
-   string minute = to_string(min);
-   string second = to_string(sec);
-   return hour + ":" + minute + ":" + second;
+string time_to_string() const{
+    string hour ="00" +  to_string(this->hr);
+    string minute ="00" +  to_string(this->min);
+    string second ="00" +  to_string(this->sec);
+    return hour.substr(hour.size()-2,2) + ":" + 
+           minute.substr(minute.size()-2,2) + ":" +
+           second.substr(second.size()-2,2);
 }
 
