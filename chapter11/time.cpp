@@ -32,5 +32,15 @@ std::string Time::time_to_string() const {
         << std::setfill('0') << std::setw(2) << sec;
     return oss.str();
 }
+Time operator+(const Time& t1, const Time& t2){
+   int total_sec = t1.sec + t2.sec;
+   int total_min = t1.min + t2.min + (total_sec/60);
+   total_sec %= 60;
+   int total_hr = t1.hr + t2.hr + (total_min / 60);
+   total_min %= 60;
 
+   return Time(total_hr, total_min, total_sec);
+
+}
+    
 

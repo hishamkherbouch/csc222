@@ -14,5 +14,6 @@ struct Time {
     Time(int hour, int minute);
     Time(int hour, int minute, int seconds);
     string time_to_string() const;
+    friend Time operator+(const Time& t1, const Time& t2);
 };
 #endif
