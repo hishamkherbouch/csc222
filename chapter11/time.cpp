@@ -16,7 +16,7 @@ Time::Time(int seconds) {
 
 std::string Time::time_to_string() const {
     std::ostringstream oss;
-    oss << std::setfill('0') << std::setw(2) << hr << ":"
+    oss << std::setfill('0') << std::setw(1) << hr << ":"
         << std::setfill('0') << std::setw(2) << min << ":"
         << std::setfill('0') << std::setw(2) << sec;
     return oss.str();
