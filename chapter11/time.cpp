@@ -13,6 +13,17 @@ Time::Time(int seconds) {
     sec = seconds % 60;        
 }
 
+Time :: Time(int hour, int minute){
+    hr = hour;
+    min = minute;
+    sec = 0;
+}
+
+Time :: Time(int hour, int minute, int second){
+    hr = hour;
+    min = minute;
+    sec = second;
+}
 
 std::string Time::time_to_string() const {
     std::ostringstream oss;

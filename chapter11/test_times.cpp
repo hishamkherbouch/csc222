@@ -13,3 +13,9 @@ TEST_CASE("Test can create and render Times") {
     Time t4(7 * 3600 + 11 * 60 + 19);
     CHECK(t4.time_to_string() == "7:11:19");
 }
+TEST_CASE("Test hour-minute and hour-minute-second constructors") {
+    Time t1(5, 37);
+    CHECK(t1.time_to_string() == "5:37:00");
+    Time t2(7, 2, 11);
+    CHECK(t2.time_to_string() == "7:02:11");
+}

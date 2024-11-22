@@ -11,7 +11,8 @@ struct Time {
 
     Time();                    
     Time(int seconds);               
-    
+    Time(int hour, int minute);
+    Time(int hour, int minute, int seconds);
     string time_to_string() const;
 };
 #endif
