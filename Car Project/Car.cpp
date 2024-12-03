@@ -20,4 +20,6 @@ void Car::Drive(int driveMiles){
     }
 }
 
-    
+void Car::FillTank(){
+    gasTank = 100;
+}
