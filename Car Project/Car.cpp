@@ -18,7 +18,7 @@ void Car::Drive (int driveMiles){
     else{
         gasTank = gasLeft;
         miles += driveMiles;
-        cout<<"Trip succesful.You have  " + to_string_double(gasTank) +  " gas left"<<endl;
+        cout<<"Trip succesful.You have " + to_string_double(gasTank) +  " gas left"<<endl;
     }
 }
 
