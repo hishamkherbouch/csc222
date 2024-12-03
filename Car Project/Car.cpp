@@ -1,4 +1,4 @@
-#include<Car.h>
+#include"Car.h"
 #include<string>
 #include<iostream>
 
@@ -16,12 +16,12 @@ void Car::Drive(int driveMiles){
     else{
         gasTank = gasLeft;
         miles += driveMiles;
-        cout<<"Trip succesful.You have  " + gasTank " gas left"<<endl;
+        cout<<"Trip succesful.You have  " + to_string_double(gasTank) +  " gas left"<<endl;
     }
 }
 
 void Car::FillTank(){
-    gasTank = 100;
+    gasTank = 100.0;
 }
 
 string to_string_double(double x) {
@@ -29,4 +29,4 @@ string to_string_double(double x) {
 }
 string Car::to_string() const{
     return "Brand " + brand + "; Color " + color + "; Model " + model + "; Year " + to_string(year) + "; Miles " + miles + "; Gas tank " + to_string_double(gasTank);
-}
+};
