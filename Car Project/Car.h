@@ -12,7 +12,7 @@ struct Car{
     double gasTank;
     
     void Drive(int distance);
-    void FillTank();
+    void FillTank() ;
     string to_string() const;
     Car(string, string, string, int, int, double);
 };
