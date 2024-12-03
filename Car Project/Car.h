@@ -8,8 +8,11 @@ struct Car{
     string color;
     string model;
     int year;
-    float miles;
+    int miles;
     double gasTank;
     
-    Car(string, string, string, int, float, double);
+    void Drive(int distance);
+    void fillTank();
+    string to_string() const;
+    Car(string, string, string, int, int, double);
 }

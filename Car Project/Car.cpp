@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Car::Car(string brand, string color, string model, int year, float miles, double gasTank){
+Car::Car(string brand, string color, string model, int year, int miles, double gasTank){
     this->brand=brand; this->color=color; this->model=model; this->year=year; this->miles=miles; this->gasTank=gasTank;
 }
 
@@ -22,4 +22,11 @@ void Car::Drive(int driveMiles){
 
 void Car::FillTank(){
     gasTank = 100;
+}
+
+string to_string_double(double x) {
+    return std::to_string(int(x)) + '.' + std::to_string(int((x - int(x)) * 100));
+}
+string Car::to_string() const{
+    return "Brand " + brand + "; Color " + color + "; Model " + model + "; Year " + to_string(year) + "; Miles " + miles + "; Gas tank " + to_string_double(gasTank);
 }
