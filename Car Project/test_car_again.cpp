@@ -20,4 +20,11 @@ int main() {
     Racer.FillTank();
 
     Racer.Drive(50);
+    
+    Car suri("Nissan","Blue",  "Rogue", 2017, 100000, 3);
+
+    cout<<suri.to_string()<<endl;
+
+    
+
 }

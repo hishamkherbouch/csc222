@@ -13,12 +13,12 @@ string to_string_double(double x){
 void Car::Drive (int driveMiles){
     double gasLeft = gasTank - driveMiles * 0.05;
     if(gasLeft<=0){
-        cout<<"You can't drive that far. You need more gas"<<endl;
+        cout<<"You don't have enough gas."<<endl;
     }
     else{
         gasTank = gasLeft;
         miles += driveMiles;
-        cout<<"Trip succesful.You have " + to_string_double(gasTank) +  " gas left"<<endl;
+        cout<<"Trip succesful.You have " + to_string_double(gasTank) +  " % of the tank left "<<endl;
     }
 }
 
