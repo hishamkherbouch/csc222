@@ -14,3 +14,8 @@ Fraction::Fraction(int numerator, int denominator){
     this->denominator=denominator;
 }
 
+Fraction::Fraction(string word){
+    int index = word.find("/");
+    numerator=stoi(word.substr(0,index));
+    denominator=stoi(word.substr(index+1));
+}

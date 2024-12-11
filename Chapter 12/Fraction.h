@@ -9,4 +9,5 @@ struct Fraction{
 
     Fraction(int,int);
     Fraction();
+    Fraction(string);
 };
