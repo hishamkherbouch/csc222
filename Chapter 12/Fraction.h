@@ -10,4 +10,6 @@ struct Fraction{
     Fraction(int,int);
     Fraction();
     Fraction(string);
+
+    string to_string() const;
 };

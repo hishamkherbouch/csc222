@@ -19,3 +19,7 @@ Fraction::Fraction(string word){
     numerator=stoi(word.substr(0,index));
     denominator=stoi(word.substr(index+1));
 }
+
+string Fraction::to_string() const{
+    return std::to_string(numerator) + "/" + std::to_string(denominator);
+}
