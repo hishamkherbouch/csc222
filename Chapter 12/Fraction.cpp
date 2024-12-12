@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <numeric>
 #include <doctest.h>
 #include "Fraction.h"
 using namespace std;
@@ -12,13 +13,24 @@ Fraction::Fraction(){
 Fraction::Fraction(int numerator, int denominator){
     this->numerator=numerator;
     this->denominator=denominator;
+    int a = numerator;
+    int b = denominator;
+    while(b != 0){
+        int temp = b;
+        b = a  % b;
+        a = temp;
+    }
+    this->numerator /= a;
+    this->denominator /= a;
 }
-
 Fraction::Fraction(string word){
     int index = word.find("/");
     numerator=stoi(word.substr(0,index));
     denominator=stoi(word.substr(index+1));
 }
+
+
+
 
 string Fraction::to_string() const{
     return std::to_string(numerator) + "/" + std::to_string(denominator);

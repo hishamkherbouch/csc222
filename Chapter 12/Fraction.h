@@ -1,3 +1,4 @@
+#include <numeric>
 #include <iostream>
 #include <string>
 #include <doctest.h>
@@ -10,6 +11,8 @@ struct Fraction{
     Fraction(int,int);
     Fraction();
     Fraction(string);
-
+   
+    int gcd(int, int);
     string to_string() const;
 };
+
