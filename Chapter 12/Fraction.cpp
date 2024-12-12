@@ -32,6 +32,9 @@ Fraction::Fraction(string word){
     int index = word.find("/");
     numerator=stoi(word.substr(0,index));
     denominator=stoi(word.substr(index+1));
+    if (numerator == denominator){
+        denominator = 1;
+    }
 }
 
 
