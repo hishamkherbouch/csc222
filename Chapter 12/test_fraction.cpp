@@ -44,7 +44,7 @@ TEST_CASE("Test can construct Fraction from integer") {
     Fraction f1(5);
     CHECK(f1.numerator == 5);
     CHECK(f1.denominator == 1);
-    Fraction f1(42);
-    CHECK(f1.numerator == 42);
-    CHECK(f1.denominator == 1);
+    Fraction f2(42);
+    CHECK(f2.numerator == 42);
+    CHECK(f2.denominator == 1);
 }

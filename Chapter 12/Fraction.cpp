@@ -23,6 +23,11 @@ Fraction::Fraction(int numerator, int denominator){
     this->numerator /= a;
     this->denominator /= a;
 }
+
+Fraction::Fraction(int numerator){
+    this->numerator=numerator;
+    denominator=1;
+}
 Fraction::Fraction(string word){
     int index = word.find("/");
     numerator=stoi(word.substr(0,index));

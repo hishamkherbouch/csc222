@@ -10,6 +10,7 @@ struct Fraction{
 
     Fraction(int,int);
     Fraction();
+    Fraction(int);
     Fraction(string);
    
     int gcd(int, int);
