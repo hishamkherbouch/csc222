@@ -37,9 +37,6 @@ Fraction::Fraction(string word){
     }
 }
 
-
-
-
 string Fraction::to_string() const{
     if(denominator==1){
         return std::to_string(numerator);
@@ -48,3 +45,5 @@ string Fraction::to_string() const{
     return std::to_string(numerator) + "/" + std::to_string(denominator);
     }
 }
+
+
