@@ -46,4 +46,8 @@ string Fraction::to_string() const{
     }
 }
 
-
+float Fraction::to_decimal(){ 
+    float n = numerator;
+    float d = denominator;
+    return n/d;
+}

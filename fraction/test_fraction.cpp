@@ -56,4 +56,7 @@ TEST_CASE("Test string constructor with integers") {
     CHECK(f2.numerator == 42);
     CHECK(f2.denominator == 1);
 }
-
+TEST_CASE("Test to_float function"){
+    Fraction f1(3,4);
+    CHECK(f1.to_decimal() == 0.75);
+}

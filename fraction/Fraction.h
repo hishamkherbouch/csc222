@@ -15,5 +15,6 @@ struct Fraction{
    
     int gcd(int, int);
     string to_string() const;
+    float to_decimal();
 };
 
