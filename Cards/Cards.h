@@ -4,12 +4,13 @@
 
 using namespace std;
 
-struct Card{
-    string rank;
-    string suit;
+struct Card
+{
+    int suit, rank;
 
-    string to_string() const;
-    
-    Card(string, string);
     Card();
+    Card(int s, int r);
+    string to_string() const;
 };
+
+

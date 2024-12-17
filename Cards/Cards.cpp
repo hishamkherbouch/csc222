@@ -4,14 +4,20 @@
 #include "Cards.h"
 using namespace std;
 
-Card::Card(string suit, string rank){
-    this->suit=suit;
-    this->rank=rank;
+Card::Card() {
+    suit = 0; rank = 0;
 }
-Card::Card(){
-    rank="Joker";
+
+Card::Card(int s, int r) {
+    suit = s; rank = r;
 }
-string Card::to_string() const
-{
-   return(rank + " of " + suit);
+
+string Card::to_string() const{
+    vector<string> suit_strings = {"None", "Clubs", "Diamonds",
+                               "Hearts", "Spades"};
+    vector<string> rank_strings = {"Joker", "Ace", "2", "3", "4", "5", "6",
+                                   "7", "8", "9", "10", "Jack", "Queen",
+                                   "King"};
+    if (rank == 0) return rank_strings[rank];
+    return rank_strings[rank] + " of " + suit_strings[suit];
 }
