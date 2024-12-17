@@ -11,6 +11,6 @@ struct Card
     Card();
     Card(int s, int r);
     string to_string() const;
+    bool Card operator==(const Card& c2, const Card& c1);
 };
-
 
