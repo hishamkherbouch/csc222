@@ -23,14 +23,18 @@ TEST_CASE("Test can render Cards") {
     Card c5;
     CHECK(c5.to_string() == "Joker");
 }
-TEST_CASE("Test comparison of Cards") {
-    Card c1(2, 9);
-    Card c2(1, 9);
-    Card c3(1, 10);
-    Card c4(1, 10);
-    CHECK(c2 < c1 == true);
-    CHECK(c3 <= c2 == false);
-    CHECK(c1 >= c3 == true);
-    CHECK(c3 == c4 == true);
-    CHECK(c3 != c4 == false);
+TEST_CASE("Test for comparison of Cards") {
+    Card c1(HEARTS, QUEEN);
+    Card c2(HEARTS, QUEEN);
+    Card c3(SPADES, ACE);
+    Card c4(HEARTS, FIVE);
+    Card c5(HEARTS, FOUR);
+    Card c6(DIAMONDS, FOUR);
+    CHECK((c1 == c2) == true);
+    CHECK((c1 == c3) == false);
+    CHECK((c1 != c3) == true);
+    CHECK((c1 > c5) == true);
+    CHECK((c1 <= c5) == false);
+    CHECK((c6 < c5) == true);
+    CHECK((c5 >= c6) == true);
 }
