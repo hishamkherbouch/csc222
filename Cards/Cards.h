@@ -21,5 +21,6 @@ struct Card
     string to_string() const;
     bool  operator==(const Card& c2) const;
     bool operator != (const Card& other) const;
+    bool operator < (const Card& other) const;
 };
 

@@ -27,3 +27,9 @@ bool Card::operator == (const Card& other) const {
 bool Card::operator != (const Card& other) const {
     return !(*this == other);
 }
+bool Card::operator < (const Card& other) const {
+    if(rank == other.rank){
+        return suit < other.suit;
+    }
+    return rank <  other.rank;
+}
