@@ -21,7 +21,6 @@ string Card::to_string() const{
     if (rank == 0) return rank_strings[rank];
     return rank_strings[rank] + " of " + suit_strings[suit];
 }
-bool Card::operator==(const Card& c2, const Card& c1);
-{
-    return (c1.rank == c2.rank && c1.suit == c2.suit);
+bool Card::operator == (const Card& other) const {
+    return rank == other.rank && suit == other.suit;
 }
