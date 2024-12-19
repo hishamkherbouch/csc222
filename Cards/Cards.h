@@ -19,8 +19,9 @@ struct Card
     Card();
     Card(Suit, Rank); 
     string to_string() const;
-    bool  operator==(const Card& c2) const;
-    bool operator != (const Card& other) const;
-    bool operator < (const Card& other) const;
+    bool  operator==(const Card& c1) const;
+    bool operator != (const Card& c1) const;
+    bool operator < (const Card& c1) const;
+    bool operator > (const Card& c1) const;
 };
 

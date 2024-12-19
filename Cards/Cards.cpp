@@ -21,15 +21,18 @@ string Card::to_string() const{
     if (rank == 0) return rank_strings[rank];
     return rank_strings[rank] + " of " + suit_strings[suit];
 }
-bool Card::operator == (const Card& other) const {
-    return rank == other.rank && suit == other.suit;
+bool Card::operator == (const Card& c1) const {
+    return rank == c1.rank && suit == c1.suit;
 }
-bool Card::operator != (const Card& other) const {
-    return !(*this == other);
+bool Card::operator != (const Card& c1) const {
+    return !(*this == c1);
 }
-bool Card::operator < (const Card& other) const {
-    if(rank == other.rank){
-        return suit < other.suit;
+bool Card::operator < (const Card& c1) const {
+    if(rank == c1.rank){
+        return suit < c1.suit;
     }
-    return rank <  other.rank;
+    return rank <  c1.rank;
+}
+bool Card::operator > (const Card& c1) const {
+    return c1 < *this;
 }
