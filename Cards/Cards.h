@@ -24,5 +24,6 @@ struct Card
     bool operator < (const Card& c1) const;
     bool operator > (const Card& c1) const;
     bool operator <= (const Card& c1) const;
+    bool operator >= (const Card& c1) const;
 };
 
