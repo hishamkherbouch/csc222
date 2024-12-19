@@ -4,12 +4,12 @@
 #include "Cards.h"
 using namespace std;
 
-Card::Card() {
-    suit = 0; rank = 0;
+Card::Card(Suit suit,Rank rank){
+    this->suit=suit;
+    this->rank=rank;
 }
-
-Card::Card(int s, int r) {
-    suit = s; rank = r;
+Card::Card(){
+    this->rank = JOKER;
 }
 
 string Card::to_string() const{

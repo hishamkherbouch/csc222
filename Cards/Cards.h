@@ -6,11 +6,14 @@ using namespace std;
 
 struct Card
 {
-    int suit, rank;
+    Suit suit;
+    Rank rank;
 
-    Card();
-    Card(int s, int r);
     string to_string() const;
-    bool Card operator==(const Card& c2, const Card& c1);
+    
+    Card();
+    Card(Suit, Rank); 
+    string to_string() const;
+    bool  operator==(const Card& c2) const;
 };
 
