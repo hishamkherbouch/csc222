@@ -36,3 +36,6 @@ bool Card::operator < (const Card& c1) const {
 bool Card::operator > (const Card& c1) const {
     return c1 < *this;
 }
+bool Card::operator <= (const Card& c1) const {
+    return !(c1  < *this);
+}
