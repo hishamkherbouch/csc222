@@ -24,3 +24,6 @@ string Card::to_string() const{
 bool Card::operator == (const Card& other) const {
     return rank == other.rank && suit == other.suit;
 }
+bool Card::operator != (const Card& other) const {
+    return !(*this == other);
+}
