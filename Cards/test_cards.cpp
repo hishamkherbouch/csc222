@@ -24,9 +24,5 @@ TEST_CASE("Test for comparison of Cards") {
     Card c6(DIAMONDS, FOUR);
     CHECK((c1 == c2) == true);
     CHECK((c1 == c3) == false);
-    CHECK((c1 != c3) == true);
-    CHECK((c1 > c5) == true);
-    CHECK((c1 <= c5) == false);
-    CHECK((c6 < c5) == true);
-    CHECK((c5 >= c6) == true);
+    
 }

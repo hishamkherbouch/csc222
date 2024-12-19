@@ -14,7 +14,7 @@ struct Card
     Suit suit;
     Rank rank;
 
-    string to_string() const;
+    
     
     Card();
     Card(Suit, Rank); 
