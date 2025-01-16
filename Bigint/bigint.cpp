@@ -30,9 +30,30 @@ string BigInt::to_string() const
 bool BigInt::operator==(const BigInt& i2) const
 {
     if (digits.size() != i2.digits.size()) return false;
-    if (flag != i2.flag) return false;
+    if (negative != i2.negative) return false;
     for (int i = 0; i < digits.size(); i++)
         if (digits[i] != i2.digits[i])
             return false;
     return true;
+}
+
+bool BigInt::operator>(const BigInt& i2) const
+{
+    if (!negative && i2.negative) return true;
+    if (negative && !i2.negative) return false;
+    // They have the same sign
+    if (negative.size() > i2.negative.size()) {
+        return negative ? false : true;
+    }
+    if (digits.size() < i2.digits.size()) {
+        return negative ? true : false;
+    }
+    // They have the same number of digits
+    for (int i = 0; i < digits.size(); i++) {
+        if (digits[i] > i2.digits[i]) {
+            return negative ? false : true;
+        }
+    }
+    // They are equal
+    return false;
 }
