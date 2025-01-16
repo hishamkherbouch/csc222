@@ -3,7 +3,7 @@ using namespace std;
 
 class BigInt
 {
-    bool flag;
+    bool negative;
     string digits;
 
     public:
@@ -11,4 +11,7 @@ class BigInt
     BigInt();
     BigInt(int);
     BigInt(string);
+
+    // member functions
+    string to_string() const;
 };
