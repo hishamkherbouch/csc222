@@ -42,7 +42,7 @@ bool BigInt::operator>(const BigInt& i2) const
     if (!negative && i2.negative) return true;
     if (negative && !i2.negative) return false;
     // They have the same sign
-    if (negative.size() > i2.negative.size()) {
+    if (digits.size() > i2.digits.size()) {
         return negative ? false : true;
     }
     if (digits.size() < i2.digits.size()) {
