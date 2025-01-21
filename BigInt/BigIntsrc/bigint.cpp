@@ -62,3 +62,14 @@ bool BigInt::operator!=(const BigInt& i2) const
 {
     return !(this->operator==(i2));
 }
+
+bool BigInt::operator<=(const BigInt& i2) const
+{
+    return !(this->operator>(i2));
+}
+
+BigInt BigInt::operator+(const BigInt& i2) const
+{
+   
+}
+
