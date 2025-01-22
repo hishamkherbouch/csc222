@@ -70,6 +70,7 @@ bool BigInt::operator<=(const BigInt& i2) const
 
 BigInt BigInt::operator+(const BigInt& i2) const
 {
-  return (i2); 
+  if(*this.digits.size() == i2.digits.size()){
+
 }
 
