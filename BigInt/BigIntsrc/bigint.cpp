@@ -76,7 +76,19 @@ BigInt BigInt::operator+(const BigInt& i2) const
     int x = digits.size()-1;
     int y = i2.digits.size()-1;
 
+    while(x>= 0 && y>=0 || c){
+        int digit1 = (x >= 0) ? digits[x] - '0' : 0;
+        int digit2 = (y >= 0) ? i2.digits[y] - '0' : 0;
+        
+        int sum = digit1 + digit2 + c;
+        result.insert(result.begin(), (sum % 10) + '0');
+        c = sum / 10;
+        
+        x--;
+        y--;
+    }
 
+    return BigInt(result);
 
    
 }
