@@ -93,3 +93,11 @@ BigInt BigInt::operator+(const BigInt& i2) const
    
 }
 
+BigInt BigInt::operator-(const BigInt& i2) const
+{
+  if(*this>i2){
+        }
+  
+}
+
+
