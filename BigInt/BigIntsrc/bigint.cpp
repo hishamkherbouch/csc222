@@ -70,7 +70,14 @@ bool BigInt::operator<=(const BigInt& i2) const
 
 BigInt BigInt::operator+(const BigInt& i2) const
 {
-  if(*this.digits.size() == i2.digits.size()){
+ string result = "";
+    int c  = 0;
+    
+    int x = digits.size()-1;
+    int y = i2.digits.size()-1;
 
+
+
+   
 }
 
