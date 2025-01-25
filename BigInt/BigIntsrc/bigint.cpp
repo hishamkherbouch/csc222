@@ -58,6 +58,27 @@ bool BigInt::operator>(const BigInt& i2) const
     return false;
 }
 
+bool BigInt::operator<(const BigInt& i2) const
+{
+    if (!negative && i2.negative) return false;
+    if (negative && !i2.negative) return true;
+    // They have the same sign
+    if (digits.size() > i2.digits.size()) {
+        return negative ? true : false;
+    }
+    if (digits.size() < i2.digits.size()) {
+        return negative ? false : true;
+    }
+    // They have the same number of digits
+    for (int i = 0; i < digits.size(); i++) {
+        if (digits[i] > i2.digits[i]) {
+            return negative ? true : false;
+        }
+    }
+    // They are equal
+    return false;
+}
+
 bool BigInt::operator!=(const BigInt& i2) const
 {
     return !(this->operator==(i2));
@@ -93,11 +114,57 @@ BigInt BigInt::operator+(const BigInt& i2) const
    
 }
 
-BigInt BigInt::operator-(const BigInt& i2) const
-{
-  if(*this>i2){
-        }
-  
+BigInt BigInt::operator-() const {
+    BigInt result = *this;
+    result.negative = !negative;
+    return result;
 }
+
+
+BigInt BigInt::operator-(const BigInt& i2) const {
+    if (this->negative && !i2.negative) {
+        return -((-*this) + i2); // (-A) - (+B) = -(A + B)
+    }
+    if (!this->negative && i2.negative) {
+        return *this + (-i2); // (+A) - (-B) = A + B
+    }
+    if (this->negative && i2.negative) {
+        return (-i2) - (-*this); // (-A) - (-B) = B - A
+    }
+
+    // Handle normal subtraction (+A - +B)
+    if (*this < i2) {
+        return -(i2 - *this); // A - B = -(B - A) if A < B
+    }
+
+    string result = "";
+    string num1 = this->digits;
+    string num2 = i2.digits;
+
+    // Pad smaller number with leading zeros
+    while (num1.size() < num2.size()) num1.insert(num1.begin(), '0');
+    while (num2.size() < num1.size()) num2.insert(num2.begin(), '0');
+
+    int borrow = 0;
+    for (int i = num1.size() - 1; i >= 0; i--) {
+        int diff = (num1[i] - '0') - (num2[i] - '0') - borrow;
+        if (diff < 0) {
+            diff += 10;
+            borrow = 1;
+        } else {
+            borrow = 0;
+        }
+        result.insert(result.begin(), diff + '0');
+    }
+
+    // Remove leading zeros
+    while (result.size() > 1 && result.front() == '0') {
+        result.erase(result.begin());
+    }
+
+    return BigInt(result);
+}
+
+
 
 
