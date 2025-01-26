@@ -123,25 +123,23 @@ BigInt BigInt::operator-() const {
 
 BigInt BigInt::operator-(const BigInt& i2) const {
     if (this->negative && !i2.negative) {
-        return -((-*this) + i2); // (-A) - (+B) = -(A + B)
+        return -((-*this) + i2); 
     }
     if (!this->negative && i2.negative) {
-        return *this + (-i2); // (+A) - (-B) = A + B
+        return *this + (-i2); 
     }
     if (this->negative && i2.negative) {
-        return (-i2) - (-*this); // (-A) - (-B) = B - A
+        return (-i2) - (-*this); 
     }
 
-    // Handle normal subtraction (+A - +B)
     if (*this < i2) {
-        return -(i2 - *this); // A - B = -(B - A) if A < B
+        return -(i2 - *this); 
     }
 
     string result = "";
     string num1 = this->digits;
     string num2 = i2.digits;
 
-    // Pad smaller number with leading zeros
     while (num1.size() < num2.size()) num1.insert(num1.begin(), '0');
     while (num2.size() < num1.size()) num2.insert(num2.begin(), '0');
 
@@ -157,7 +155,6 @@ BigInt BigInt::operator-(const BigInt& i2) const {
         result.insert(result.begin(), diff + '0');
     }
 
-    // Remove leading zeros
     while (result.size() > 1 && result.front() == '0') {
         result.erase(result.begin());
     }
