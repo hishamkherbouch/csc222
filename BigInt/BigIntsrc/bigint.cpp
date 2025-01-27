@@ -116,6 +116,9 @@ BigInt BigInt::operator+(const BigInt& i2) const
 
 BigInt BigInt::operator-() const {
     BigInt result = *this;
+    if(result.digits=="0"){
+        return BigInt("0");
+    }
     result.negative = !negative;
     return result;
 }

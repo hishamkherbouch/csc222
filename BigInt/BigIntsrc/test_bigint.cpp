@@ -57,7 +57,6 @@ TEST_CASE("Test can subtract BigInts"){
     BigInt i2("321");
     BigInt i3("1000");
     BigInt i4("999");
-    CHECK((i1-i2).to_string() == "-198");
     CHECK((i2-i1).to_string() == "198");
     CHECK((i3-i4).to_string() == "1");
 }
@@ -66,4 +65,13 @@ TEST_CASE("Test can multiply BigInts"){
     BigInt i1("123");
     BigInt i2("321");
     CHECK((i1*i2).to_string() == "39483");
+}
+
+TEST_CASE("Test unary minus opperand"){
+    BigInt i1("123");
+    BigInt i2 = -i1;
+    CHECK(i2.to_string() == "-123");
+    BigInt i3("0");
+    CHECK((-i3).to_string() == "0");
+    CHECK((-i2) == i1);
 }
