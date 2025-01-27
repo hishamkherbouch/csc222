@@ -162,6 +162,17 @@ BigInt BigInt::operator-(const BigInt& i2) const {
     return BigInt(result);
 }
 
+BigInt BigInt::operator*(const BigInt& i2) const
+{
+    BigInt x;
 
+    if(this->negative ||  i2.negative){
+        return -(x);
+    }
+
+    return i2;
+
+
+}
 
 
