@@ -167,9 +167,20 @@ BigInt BigInt::operator-(const BigInt& i2) const {
 
 BigInt BigInt::operator*(const BigInt& i2) const
 {
-  bool resultNegative = (this->negative != i2.negative);
+    bool resultNegative = (this->negative != i2.negative);
   
-  string result(this->digits.size() + i2.digits.size(), '0');
+    string result(this->digits.size() + i2.digits.size(), '0');
+  
+    for(int i=this->digits.size() -1; i>= 0; i--){
+        int carry = 0;
+        for(int j = i2.digits.size() -1; j >= 0; j--){
+            int product = (this->digits[i]-'0') * (i2.digits[j]-'0')+(result[i+j+1]-'0')+ carry;
+            carry = product / 10;
+            result[i+j+1] = (product % 10) + '0';
+        }
+        result[i] += carry;
+    }
+
 
 
 }
