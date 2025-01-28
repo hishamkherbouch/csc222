@@ -168,7 +168,8 @@ BigInt BigInt::operator-(const BigInt& i2) const {
 BigInt BigInt::operator*(const BigInt& i2) const
 {
   bool resultNegative = (this->negative != i2.negative);
-
+  
+  string result(this->digits.size() + i2.digits.size(), '0');
 
 
 }
