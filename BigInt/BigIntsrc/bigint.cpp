@@ -41,20 +41,20 @@ bool BigInt::operator>(const BigInt& i2) const
 {
     if (!negative && i2.negative) return true;
     if (negative && !i2.negative) return false;
-    // They have the same sign
+    
     if (digits.size() > i2.digits.size()) {
         return negative ? false : true;
     }
     if (digits.size() < i2.digits.size()) {
         return negative ? true : false;
     }
-    // They have the same number of digits
+    
     for (int i = 0; i < digits.size(); i++) {
         if (digits[i] > i2.digits[i]) {
             return negative ? false : true;
         }
     }
-    // They are equal
+    
     return false;
 }
 
@@ -62,20 +62,20 @@ bool BigInt::operator<(const BigInt& i2) const
 {
     if (!negative && i2.negative) return false;
     if (negative && !i2.negative) return true;
-    // They have the same sign
+  
     if (digits.size() > i2.digits.size()) {
         return negative ? true : false;
     }
     if (digits.size() < i2.digits.size()) {
         return negative ? false : true;
     }
-    // They have the same number of digits
+
     for (int i = 0; i < digits.size(); i++) {
         if (digits[i] > i2.digits[i]) {
             return negative ? true : false;
         }
     }
-    // They are equal
+
     return false;
 }
 
@@ -196,6 +196,35 @@ BigInt BigInt::operator*(const BigInt& i2) const
     return BigInt(result);
 }
 
+BigInt BigInt::operator%(const BigInt& i2) const
+{
+    BigInt result = this;
+    if(result.negative){
+        -result; 
+    }
+    
+    if(i2=="0"){
+        return result;
+    }
+
+    if(i2.negative){
+        -i2;
+    }
+
+    if(i2>this){
+        return result;
+    }
+
+    else if(result==i2){
+        return '0';
+    }
+
+    while(result>i2){
+        result = result - i2;
+    }
+
+    return result;
+}
 
 
 
