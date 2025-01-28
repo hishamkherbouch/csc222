@@ -181,8 +181,25 @@ BigInt BigInt::operator*(const BigInt& i2) const
         result[i] += carry;
     }
 
+    size_t startPos = result.find_first_not_of('0');
+    if(startPos != string::npos){
+        result = result.substr(startPos);
+    }
+    else{
+        result = "0";
+    }
 
+    if(resultNegative && result != "0"){
+        result.insert(result.begin(), '-');
+    }
 
+    return BigInt(result);
 }
+
+
+
+
+
+
 
 
