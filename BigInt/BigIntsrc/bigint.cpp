@@ -167,13 +167,8 @@ BigInt BigInt::operator-(const BigInt& i2) const {
 
 BigInt BigInt::operator*(const BigInt& i2) const
 {
-    BigInt x;
+  bool resultNegative = (this->negative != i2.negative);
 
-    if(this->negative ||  i2.negative){
-        return -(x);
-    }
-
-    return i2;
 
 
 }
