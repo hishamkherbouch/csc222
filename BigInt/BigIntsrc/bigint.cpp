@@ -198,12 +198,12 @@ BigInt BigInt::operator*(const BigInt& i2) const
 
 BigInt BigInt::operator%(const BigInt& i2) const
 {
-    BigInt result = this;
+    BigInt result = *this;
     if(result.negative){
         -result; 
     }
     
-    if(i2=="0"){
+    if(i2=='0'){
         return result;
     }
 
@@ -211,7 +211,7 @@ BigInt BigInt::operator%(const BigInt& i2) const
         -i2;
     }
 
-    if(i2>this){
+    if(i2>result){
         return result;
     }
 
