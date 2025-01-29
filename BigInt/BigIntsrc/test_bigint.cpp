@@ -75,6 +75,14 @@ TEST_CASE("Test unary minus opperand"){
     CHECK((-i3).to_string() == "0");
     CHECK((-i2) == i1);
 }
+
+TEST_CASE("Test can divide BigInts"){
+    BigInt i1("12345");
+    BigInt i2("123");
+    CHECK((i1/i2).to_string() == "100";
+}
+
+
 TEST_CASE("Test modulo % operator"){
     BigInt i1("17");
     BigInt i2("5");
