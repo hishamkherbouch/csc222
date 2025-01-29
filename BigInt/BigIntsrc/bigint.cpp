@@ -198,22 +198,33 @@ BigInt BigInt::operator*(const BigInt& i2) const
 
 BigInt BigInt::operator%(const BigInt& i2) const
 {
-    BigInt result = *this;
-    if(result.negative){
-        -result; 
-    }
+    
+    
     
     if(i2==BigInt("0")){
         throw std::invalid_argument("Can not divide by zero");
     }
+    
+    BigInt dividend = *this;
+    BigInt divisor = i2;
 
-    if(i2.negative){
-        -i2;
+    bool isNegative = dividend.negative;
+
+    if(dividend.negative){
+        dividend = -dividend;
     }
 
-    if(i2>result){
-        return result;
+    if(divisor.negative){
+        divisor = -divisor;
     }
+
+    if(dividend<divisor){
+        return *this;
+    }
+
+    
+
+   
 
     else if(result==i2){
         return '0';
