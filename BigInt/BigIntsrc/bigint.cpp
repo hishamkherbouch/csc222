@@ -203,8 +203,8 @@ BigInt BigInt::operator%(const BigInt& i2) const
         -result; 
     }
     
-    if(i2=='0'){
-        return result;
+    if(i2==BigInt("0")){
+        throw std::invalid_argument("Can not divide by zero");
     }
 
     if(i2.negative){
