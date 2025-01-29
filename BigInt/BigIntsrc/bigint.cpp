@@ -36,7 +36,9 @@ bool BigInt::operator==(const BigInt& i2) const
             return false;
     return true;
 }
-
+bool BigInt::operator >= (const BigInt& other) const{
+    return (this->operator > (other)) || (this->operator == (other));
+}
 bool BigInt::operator>(const BigInt& i2) const
 {
     if (!negative && i2.negative) return true;
@@ -78,16 +80,16 @@ bool BigInt::operator<(const BigInt& i2) const
 
     return false;
 }
+bool BigInt::operator <= (const BigInt& other) const{
+    return !(this->operator > (other));
+}
 
 bool BigInt::operator!=(const BigInt& i2) const
 {
     return !(this->operator==(i2));
 }
 
-bool BigInt::operator<=(const BigInt& i2) const
-{
-    return !(this->operator>(i2));
-}
+
 
 BigInt BigInt::operator+(const BigInt& i2) const
 {
@@ -222,19 +224,12 @@ BigInt BigInt::operator%(const BigInt& i2) const
         return *this;
     }
 
-    
-
-   
-
-    else if(result==i2){
-        return '0';
+    while(dividend>= divisor){
+        dividend = dividend - divisor;
     }
 
-    while(result>i2){
-        result = result - i2;
-    }
+    return isNegative ? -dividend : dividend;
 
-    return result;
 }
 
 
