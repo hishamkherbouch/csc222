@@ -199,7 +199,9 @@ BigInt BigInt::operator*(const BigInt& i2) const
 }
 BigInt BigInt::operator/(const BigInt& i2) const
 {
-
+    if(i2==BigInt("0"){
+            throw std::invalid_argument("Can not divide by zero");
+    }
 }
 BigInt BigInt::operator%(const BigInt& i2) const
 {
