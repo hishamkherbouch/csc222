@@ -199,7 +199,7 @@ BigInt BigInt::operator*(const BigInt& i2) const
 }
 BigInt BigInt::operator/(const BigInt& i2) const
 {
-    if(i2==BigInt("0"){
+    if(i2==BigInt("0")){
             throw std::invalid_argument("Can not divide by zero");
     }
 
@@ -209,7 +209,39 @@ BigInt BigInt::operator/(const BigInt& i2) const
 
     dividend.negative = false;
     divisor.negative = false;
+
+    if(dividend<divisor){
+        return BigInt("0");
+    }
+    
+    if(dividend==divisor){
+        return resultNegative ? BigInt("-1") : BigInt("1");
+    }
+
+    string result = "";
+    BigInt current = BigInt("0");
+    for(size_t i = 0; i<dividend.digits.size(); ++i){
+        current = current * 10 + BigInt(string(1,dividend.digits[i]));
+
+        int count = 0;
+        while(current>=divisor){
+            current = current - divisor;
+            count++;
+        }
+
+        result.push_back(count+'0');
+    }
+
+    size_t startPos = result.find_first_not_of('0');
+    result = (startPos!= string::npos) ? result.substr(startPos) : "0";
+
+    if(resultNegative && result != "0"){
+        result.insert(result.begin(), '-');
+    }
+
+    return BigInt(result);
 }
+
 BigInt BigInt::operator%(const BigInt& i2) const
 {
     

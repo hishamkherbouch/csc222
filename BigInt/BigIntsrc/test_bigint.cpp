@@ -79,7 +79,7 @@ TEST_CASE("Test unary minus opperand"){
 TEST_CASE("Test can divide BigInts"){
     BigInt i1("12345");
     BigInt i2("123");
-    CHECK((i1/i2).to_string() == "100";
+    CHECK((i1/i2).to_string() == "100");
 }
 
 
